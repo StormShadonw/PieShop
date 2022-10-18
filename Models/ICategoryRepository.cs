@@ -2,7 +2,7 @@
 {
     public interface ICategoryRepository
     {
-        IEnumerable<Pie> GetAllCategories { get; }
+        IEnumerable<Category> GetAllCategories { get; }
 
     }
 }
