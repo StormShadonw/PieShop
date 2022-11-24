@@ -613,9 +613,11 @@ pre code {
 }
 
 .col {
-  flex-basis: 0;
-  flex-grow: 1;
-  max-width: 100%;
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .row-cols-1 > * {

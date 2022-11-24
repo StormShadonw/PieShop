@@ -17,8 +17,15 @@ namespace PieShop.Controllers
         }
         public IActionResult Index()
         {
-            var pies = new PieViewModelIndex(_pieRepository.GetAllPies, "Pies Category");
+            var pies = new PieViewModelIndex(_pieRepository.GetAllPies, "All pies");
             return View(pies);
+        }
+
+        public IActionResult Details(int id)
+        {
+            var pie = _pieRepository.GetPieByID(id);
+            if (pie == null) return NotFound();
+            return View(pie);
         }
     }
 }

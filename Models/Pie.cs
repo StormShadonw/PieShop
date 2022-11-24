@@ -1,7 +1,10 @@
-﻿namespace PieShop.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace PieShop.Models
 {
     public class Pie
     {
+        [Key]
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
         public string? ShortDescription { get; set; }
@@ -18,5 +21,7 @@
         public string CreatedBy { get; set; }
         public DateTime? ModifiedDate { get; set; }
         public string? ModifiedBy { get; set; }
+        public bool Active { get; set; }
+
     }
 }
