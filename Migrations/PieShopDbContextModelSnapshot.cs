@@ -55,7 +55,7 @@ namespace PieShop.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories", (string)null);
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("PieShop.Models.Pie", b =>
@@ -117,7 +117,47 @@ namespace PieShop.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Pies", (string)null);
+                    b.ToTable("Pies");
+                });
+
+            modelBuilder.Entity("PieShop.Models.ShoppingCartItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("Active")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("PieId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ShoppingCartId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PieId");
+
+                    b.ToTable("shoppingCartItems");
                 });
 
             modelBuilder.Entity("PieShop.Models.Pie", b =>
@@ -129,6 +169,17 @@ namespace PieShop.Migrations
                         .IsRequired();
 
                     b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("PieShop.Models.ShoppingCartItem", b =>
+                {
+                    b.HasOne("PieShop.Models.Pie", "Pie")
+                        .WithMany()
+                        .HasForeignKey("PieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Pie");
                 });
 
             modelBuilder.Entity("PieShop.Models.Category", b =>

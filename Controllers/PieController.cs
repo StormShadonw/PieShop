@@ -15,10 +15,28 @@ namespace PieShop.Controllers
             _pieRepository = pieRepository;
             _categoryRepository = categoryRepository;
         }
-        public IActionResult Index()
+        //public IActionResult Index()
+        //{
+        //    var pies = new PieViewModelIndex(_pieRepository.GetAllPies, "All pies");
+        //    return View(pies);
+        //}
+
+        public IActionResult Index(string category)
         {
-            var pies = new PieViewModelIndex(_pieRepository.GetAllPies, "All pies");
-            return View(pies);
+            IEnumerable<Pie> pies;
+            string? currentCategory;
+
+            if(string.IsNullOrEmpty(category))
+            {
+                pies = _pieRepository.GetAllPies.OrderBy(p => p.Id);
+                currentCategory = "All pies";
+            }
+            else
+            {
+                pies = _pieRepository.GetAllPies.Where(p => p.Category.Name == category).OrderBy(p => p.Id);
+                currentCategory = _categoryRepository.GetAllCategories.FirstOrDefault(c => c.Name == category)?.Name;
+            }
+            return View(new PieViewModelIndex(pies, currentCategory));
         }
 
         public IActionResult Details(int id)

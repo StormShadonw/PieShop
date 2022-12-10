@@ -12,7 +12,8 @@
         <h3 class="pull-right">@Model.Price.ToString("c")</h3>
         <div class="addToCart">
             <p class="button">
-               
+                <a class="btn btn-secondary" asp-controller="ShoppingCart" asp-action="AddToShoppingCart"
+                   asp-route-pieId="@Model.Id">Add to cart</a>
             </p>
         </div>
     </div>
