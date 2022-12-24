@@ -18,7 +18,12 @@ namespace PieShop.Controllers
         {
             var items = _shoppingCart.GetShoppingCartItems();
             _shoppingCart.shoppingCartItems = items;
-            var shoppingCartViewModel = new ShoppingCartViewModel(_shoppingCart, _shoppingCart.getShoppingCartTotal());
+            var totalQuantity = 0;
+            foreach (var item in items)
+            {
+                totalQuantity += item.Quantity;
+            }
+            var shoppingCartViewModel = new ShoppingCartViewModel(_shoppingCart, _shoppingCart.getShoppingCartTotal(), totalQuantity);
             return View(shoppingCartViewModel);
         }
 

@@ -1,13 +1,20 @@
 using Microsoft.EntityFrameworkCore;
+using PieShop.Data.Repositories.Implementations;
 using PieShop.Models;
+using PieShop.Repositories.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped<IPieRepository, PieRepository>();
 
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 
 builder.Services.AddScoped<IShoppingCart, ShoppingCart>(serviceProvider => ShoppingCart.GetCart(serviceProvider));
+
+builder.Services.AddRazorPages();
+
 builder.Services.AddSession();
 builder.Services.AddHttpContextAccessor();
 
@@ -26,6 +33,8 @@ app.MapControllerRoute(
     name: "Default",
     pattern: "{controller=Home}/{action=Index}/{id?}"
     );
+
+app.MapRazorPages();
 
 // Create system data in DB
 SeedData.Seed(app);

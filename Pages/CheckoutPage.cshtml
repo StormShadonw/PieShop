@@ -1,0 +1,91 @@
+﻿@page
+@model PieShop.Pages.CheckoutPageModel
+
+
+
+
+<form method="post" role="form">
+    <h3 class="my-5">
+        You're just one step away from your delicious pies.
+    </h3>
+
+    @*<div asp-validation-summary="All" class="text-danger"></div>*@
+
+    <div class="col-6">
+        <div class="row g-2">
+
+            <div class="col-12">
+                <label asp-for="order.FirstName" class="form-label"></label>
+                <input asp-for="order.FirstName" class="form-control" />
+                <span asp-validation-for="order.FirstName" class="text-danger"></span>
+            </div>
+
+            <div class="col-12">
+                <label asp-for="order.LastName" class="form-label"></label>
+                <input asp-for="order.LastName" class="form-control" />
+                <span asp-validation-for="order.LastName" class="text-danger"></span>
+            </div>
+
+            <div class="col-12">
+                <label asp-for="order.Address1" class="form-label"></label>
+                <input asp-for="order.Address1" class="form-control" />
+                <span asp-validation-for="order.Address1" class="text-danger"></span>
+            </div>
+
+            <div class="col-12">
+                <label asp-for="order.Address2" class="form-label"></label>
+                <input asp-for="order.Address2" class="form-control" />
+                <span asp-validation-for="order.Address2" class="text-danger"></span>
+            </div>
+
+            <div class="col-12">
+                <label asp-for="order.Address3" class="form-label"></label>
+                <input asp-for="order.Address3" class="form-control" />
+                <span asp-validation-for="order.Address3" class="text-danger"></span>
+            </div>
+
+            <div class="col-6">
+                <label asp-for="order.City" class="form-label"></label>
+                <input asp-for="order.City" class="form-control" />
+                <span asp-validation-for="order.City" class="text-danger"></span>
+            </div>
+
+            <div class="col-6">
+                <label asp-for="order.State" class="form-label"></label>
+                <input asp-for="order.State" class="form-control" />
+                <span asp-validation-for="order.State" class="text-danger"></span>
+            </div>
+
+            <div class="col-6">
+                <label asp-for="order.ZipCode" class="form-label"></label>
+                <input asp-for="order.ZipCode" class="form-control" />
+                <span asp-validation-for="order.ZipCode" class="text-danger"></span>
+            </div>
+            
+            <div class="col-6">
+                <label asp-for="order.Country" class="form-label"></label>
+                <input asp-for="order.Country" class="form-control" />
+                <span asp-validation-for="order.Country" class="text-danger"></span>
+            </div>
+
+            <div class="col-12">
+                <label asp-for="order.Email" class="form-label"></label>
+                <input asp-for="order.Email" class="form-control" />
+                <span asp-validation-for="order.Email" class="text-danger"></span>
+            </div>
+
+            <div class="col-6">
+                <label asp-for="order.PhoneNumber" class="form-label"></label>
+                <input asp-for="order.PhoneNumber" class="form-control" />
+                <span asp-validation-for="order.PhoneNumber" class="text-danger"></span>
+            </div>
+
+            <div class="mt-2">
+                <div class="col-md-offset-2 col-md-5">
+                    <input type="submit" class="btn btn-secondary" value="Complete Order" />
+                </div>
+            </div>
+
+        </div>
+    </div>
+</form>

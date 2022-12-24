@@ -17,7 +17,13 @@ namespace PieShop.Components
             var items = shoppingCart.GetShoppingCartItems();
             shoppingCart.shoppingCartItems = items;
 
-            var shoppingCartViewModel = new ShoppingCartViewModel(shoppingCart, shoppingCart.getShoppingCartTotal());
+            var totalQuantity = 0;
+            foreach (var item in items)
+            {
+                totalQuantity += item.Quantity;
+            }
+
+            var shoppingCartViewModel = new ShoppingCartViewModel(shoppingCart, shoppingCart.getShoppingCartTotal(), totalQuantity);
             return View(shoppingCartViewModel);
         }
     }

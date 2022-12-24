@@ -14,7 +14,7 @@
         @foreach (var category in Model)
         {
             <li>
-                <a asp-controller="Pie" asp-action="List"
+                <a asp-controller="Pie" asp-action="Index"
                    asp-route-category="@category.Name"
                    class="dropdown-item">
                     @category.Name
@@ -22,7 +22,7 @@
             </li>
         }
         <li>
-            <a asp-controller="Pie" asp-action="List" asp-route-Category="" class="dropdown-item">All pies</a>
+            <a asp-controller="Pie" asp-action="Index" asp-route-Category="" class="dropdown-item">All pies</a>
         </li>
     </ul>
 </li>
