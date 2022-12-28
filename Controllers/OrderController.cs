@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using PieShop.Models;
 using PieShop.Repositories.Interfaces;
 
 namespace PieShop.Controllers
 {
+    [Authorize]
     public class OrderController : Controller
     {
 

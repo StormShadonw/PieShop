@@ -16,13 +16,27 @@ namespace PieShop.Controllers.Api
         [HttpGet]
         public IActionResult GetAll()
         {
-
+            var pies = pieRepository.GetAllPies;
+            return Ok(pies);
         }
 
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
+            if(!pieRepository.GetAllPies.Any(p => p.Id == id)) return NotFound();
+            return Ok(pieRepository.GetAllPies.Where(p => p.Id == id));
+        }
 
+        [HttpPost]
+        public IActionResult SearchPies([FromBody] string searchQuery)
+        {
+            List<Pie> pies = new List<Pie>();
+            if(string.IsNullOrEmpty(searchQuery))
+            {
+                return NotFound();
+            }
+            pies = pieRepository.SearchPies(searchQuery);
+            return new JsonResult(pies);
         }
     }
 }

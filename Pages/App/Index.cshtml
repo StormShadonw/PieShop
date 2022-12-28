@@ -1,0 +1,9 @@
+﻿@page "/app"
+@using PieShop.Pages.App
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<component type="typeof(AppRouter)" render-mode="Server" />
+<script src="/_framework/blazor.server.js"></script>

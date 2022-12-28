@@ -45,5 +45,10 @@ namespace PieShop.Controllers
             if (pie == null) return NotFound();
             return View(pie);
         }
+
+        public IActionResult Search()
+        {
+            return View();
+        }
     }
 }

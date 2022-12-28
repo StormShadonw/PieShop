@@ -35,13 +35,22 @@
                                 <a asp-controller="Contact" asp-action="Index" class="nav-link">Contact</a>
                             </li>
                         </ul>
+                        <ul class="nav mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Pie" asp-action="Search">
+                                    <img src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/search-512.png" width="25" />
+                                </a>
+                            </li>
+                        </ul>
                         <vc:shopping-cart-summary></vc:shopping-cart-summary>
+                        <partial name="_LoginPartial" />
                     </div>
                 </div>
             </nav>
         </header>
 
         @RenderBody()
+        @RenderSection("Scripts", required:false)
     </div>
 </body>
 </html>

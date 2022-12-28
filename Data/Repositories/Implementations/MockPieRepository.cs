@@ -25,5 +25,10 @@
         {
             throw new NotImplementedException();
         }
+
+        List<Pie> IPieRepository.SearchPies(string searchQuery)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
